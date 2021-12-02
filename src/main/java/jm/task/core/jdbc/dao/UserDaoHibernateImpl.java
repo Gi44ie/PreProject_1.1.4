@@ -29,12 +29,6 @@ public class UserDaoHibernateImpl implements UserDao {
         session.createSQLQuery(sql).executeUpdate();
         transaction.commit();
         session.close();
-
-        if (transaction != null) {
-            transaction.rollback();
-        }
-
-
     }
 
     @Override
@@ -52,10 +46,6 @@ public class UserDaoHibernateImpl implements UserDao {
         session.save(sUser);
         transaction.commit();
         session.close();
-
-        if (transaction != null) {
-            transaction.rollback();
-        }
     }
 
     @Override
@@ -68,10 +58,6 @@ public class UserDaoHibernateImpl implements UserDao {
         session.delete(rUser);
         transaction.commit();
         session.close();
-
-        if (transaction != null) {
-            transaction.rollback();
-        }
     }
 
     @Override
@@ -96,9 +82,5 @@ public class UserDaoHibernateImpl implements UserDao {
         session.createQuery("delete from User").executeUpdate();
         transaction.commit();
         session.close();
-
-        if (transaction != null) {
-            transaction.rollback();
-        }
     }
 }
